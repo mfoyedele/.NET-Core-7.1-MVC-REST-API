@@ -13,13 +13,16 @@ namespace Commander.Controllers
         [HttpGet]
         public ActionResult <IEnumerable<Command>> GetAllCommands()
         {
-            
+            var commandItems = _repository.GetAppCommands();
+            return Ok(commandItems);            
         }
 
         //GET api/commands/{id}
         [HttpGet("{id}")]
         public ActionResult <Command> GetCommandbyId(int id)
         {
+            var commandItem = _repository.GetCommandById(id);
+            return Ok(commandItem);
 
         }
     }
